@@ -1,0 +1,41 @@
+int in4 = 10;
+int in3 = 9;
+int in2 = 12;
+int rightMotorNeg = 13;
+void setup()
+{
+pinMode(in4, OUTPUT);
+pinMode(in2, OUTPUT);
+pinMode(in3, OUTPUT);
+pinMode(rightMotorNeg, OUTPUT);
+}
+void loop()
+{
+forward();
+delay(1000);
+right();
+delay(1000);
+
+stopAll();
+delay(500);
+}
+void forward() {
+digitalWrite(in2, HIGH);
+digitalWrite(in4, HIGH);
+digitalWrite(rightMotorNeg, LOW);
+digitalWrite(in3, LOW);
+}
+
+void right() {
+digitalWrite(in2, LOW);
+digitalWrite(in4, HIGH);
+digitalWrite(rightMotorNeg, LOW);
+digitalWrite(in3, LOW);
+}
+
+void stopAll() {
+digitalWrite(rightMotorNeg, LOW);
+digitalWrite(in3, LOW);
+digitalWrite(in2, LOW);
+digitalWrite(in4, LOW);
+}
